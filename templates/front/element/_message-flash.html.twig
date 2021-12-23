@@ -1,0 +1,22 @@
+{% for message in app.flashes('notice') %}
+    <div id="card-flash" class="fixed top-1/2 md:top-32 w-full">
+        <div class="container flex flex-col">
+            <div class="w-full md:w-1/2 rounded overflow-hidden shadow-xl z-20">
+                <div class="flex p-4 bg-red-700 justify-between text-white">
+                <p class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="ml-2 uppercase font-bold">Accès interdit !</span>
+                </p>
+                    <svg id="close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>
+                <div class="p-4 bg-white">
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

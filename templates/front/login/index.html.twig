@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion | Développeur WEB{% endblock %}
+
+{% block body %}
+<main class="section container flex">
+    <section class="m-auto w-full md:w-3/4 lg:w-1/2 shadow-xl p-4 lg:p-8 round">
+        <form action="{{ path('login') }}" method="post">
+            <div class="mb-4 md:mb-8">
+                <label class="block font-bold" for="username">Pseudo</label>
+                <input class="w-full form-input p-1 rounded" type="text" id="username" name="_username" value="{{ last_username }}"/>
+            </div>
+
+            <div class="mb-4 md:mb-8">
+                <label class="block font-bold" for="password">Mot de passe</label>
+                <input class="w-full form-input p-1 rounded" type="password" id="password" name="_password"/>
+            </div>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <button class="btn action" type="submit">Connexion</button>
+        </form>
+
+        {% if error %}
+            <div class="px-4 py-2 bg-red-100 border border-red-400 mt-4 rounded">
+                <p class="text-red-600">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            </div>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

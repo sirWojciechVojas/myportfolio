@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Geoffroy COLPART | Développeur WEB{% endblock %}
+
+{% block body %}
+    {# Navigation #}
+    {% include 'front/element/_navigation.html.twig' %}
+    {# Navigation #}
+
+    {# Message flash #}
+    {% include 'front/element/_message-flash.html.twig' %}
+    {# Message flash #}
+
+    <main class="container py-8 sm:py-16 lg:py-32">
+        {# Section - Hero #}
+        {% include 'front/section/hero/_hero.html.twig' %}
+        {# Section - Hero #}
+
+        {# Section - Projects #}
+        {% include 'front/section/project/_list-project.html.twig' %}
+        {# Section - Projects #}
+
+        {# Section - Skills #}
+        {% include 'front/section/skill/_list-skill.html.twig' %}
+        {# Section - Skills #}
+    </main>
+
+    {# Footer #}
+    {% include 'front/element/_footer.html.twig' %}
+    {# Footer #}
+{% endblock %}

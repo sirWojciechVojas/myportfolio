@@ -1,0 +1,15 @@
+<header class="w-full fixed shadow-lg bg-white h-24 flex items-center z-10">
+    <nav class="container flex justify-between items-center">
+        <a title="Page d'accueil" arial-label="homepage" href="{{ path('home') }}">
+            <img src="{{ asset('img/logo.png') }}" alt="">
+        </a>
+
+        <ul class="flex items-center">
+            <li class="pr-4 text-primary hover:opacity-75 duration-300 font-bold"><a href="#projects">Projets</a></li>
+            <li><a class="text-primary hover:opacity-75 duration-300 font-bold" href="#skills">Compétences</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a class="text-primary hover:opacity-75 duration-300 font-bold pl-4" href="{{ path('dashboard') }}">Admin</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,8 @@
+{% for skill in skills %}
+    <article class="card">
+        <h3 class="text-display font-bold uppercase text-sm mb-1">{{ skill.name }}</h3>
+        <div class="bg-gray-300 w-full progress">
+        <div style="height: inherit; width: {{ skill.level }}%; background-color: {{ skill.color }}"></div>
+        </div>
+    </article>
+{% endfor %}

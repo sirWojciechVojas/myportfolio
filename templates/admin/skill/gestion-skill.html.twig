@@ -1,0 +1,23 @@
+{% extends '@admin/base.html.twig' %}
+
+{% set title = pageName ~ ' une compétence' %}
+
+{% block title %}{{ title }} | {{ parent() }}{% endblock %}
+
+{% block body %}
+<section>
+    {# Titre de la page #}
+    {% include 'admin/element/_title-page.html.twig' with { 'title': title } %}
+    {# Titre de la page #}
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.color) }}
+    {{ form_row(form.level) }}
+
+    <button class="btn btn-primary btn-sm text-uppercase fw-bold" type="sublit">{{ pageName }}</button>
+
+    {{ form_end(form) }}
+</section>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends '@admin/base.html.twig' %}
+
+{% set title = 'La liste des compétences' %}
+
+{% block title %}{{ title }} | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+<section>
+    {# Titre de la page #}
+    {% include 'admin/element/_title-page.html.twig' with { 'title': title , 'path': 'admin.add.skill' } %}
+    {# Titre de la page #}
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Couleur</th>
+                    <th scope="col">Niveau</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for skill in skills %}
+                    <tr>
+                        <th>{{ loop.index + (numberPage * 10) }} </th>
+                        <td>{{ skill.name }}</td>
+                        <td><span class="badge" style="background-color: {{ skill.color }}; color: {{ skill.color }}">New</span></td>
+                        <td>{{ skill.level }}</td>
+                        <td>
+                            <a  class="btn btn-sm btn-outline-primary text-uppercase" 
+                                href="{{ path('admin.edit.skill', {id: skill.id}) }}">modifier</a>
+                            <button class="delete-modal btn btn-danger btn-sm text-uppercase"
+                                    data-title="compétence"
+                                    data-name="{{ skill.name }}"
+                                    data-link="{{ path('admin.delete.skill', {id: skill.id}) }}"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal">supprimer</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-3">
+        {{ knp_pagination_render(skills) }}
+    </div>
+
+    {% include 'admin/element/_delete-modal.html.twig' %}
+</section>
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('delete-modal') }}
+{% endblock %}
+
+{% endblock %}

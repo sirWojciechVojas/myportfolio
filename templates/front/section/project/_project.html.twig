@@ -1,0 +1,28 @@
+{% for project in projects %}
+    <article class="shadow-lg card rounded overflow-hidden">
+        <header class="card-header">
+            <img src="{{ asset('/uploads/images/' ~ project.featured.path) }}" alt="{{ project.featured.alt }}">
+        </header>
+
+        <div class="p-4">
+            <h3 class="text-display font-bold mb-4 text-lg text-primary">{{ project.name }}</h3>
+            <p class="leading-6 h-32 overflow-hidden">{{ project.chapo }}</p>
+
+            <p class="flex justify-between mt-6">
+                {% if project.website is not null %}
+                    <a class="btn action" href="{{ project.website }}">Découvrir</a>
+                {% endif %}
+
+                {% if project.github is not null %}
+                    <a class="btn outline" href="{{ project.github }}">Github</a>
+                {% endif %}
+            </p>
+        </div>
+
+        <footer class="p-4 bg-gray-50">
+            {% for skill in project.skills %}
+                <span class="pr-2 font-bold text-sm">#{{ skill.name }}</span>
+            {% endfor %}
+        </footer>
+    </article>
+{% endfor %}

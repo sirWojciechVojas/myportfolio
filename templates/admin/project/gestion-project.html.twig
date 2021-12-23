@@ -1,0 +1,72 @@
+{% extends '@admin/base.html.twig' %}
+
+{% set title = pageName ~ ' un projet' %}
+
+{% block title %}{{ title }} | {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<section>
+    {# Titre de la page #}
+    {% include 'admin/element/_title-page.html.twig' with { 'title': title } %}
+    {# Titre de la page #}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+        <div class="row">
+            <div class="row col-lg-8">
+                <div class="mb-3 col-md-4">
+                    {{ form_row(form.name) }}
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    {{ form_row(form.website) }}
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    {{ form_row(form.github) }}
+                </div>
+
+                <div class="mb-3 col-md-12">
+                    {{ form_row(form.skills) }}
+                </div>
+
+                <div class="mb-3 col-md-12">
+                    {{ form_row(form.chapo) }}
+                </div>
+            </div>
+
+            <div class="col-md-12 col-lg-4">
+                <h4 class="mb-3">Image mise en avant</h4>
+                <div class="mb-3">
+                    {{ form_row(form.featured.file) }}
+                </div>
+                
+                <div class="mb-3 mb-lg-0">
+                    {{ form_row(form.featured.alt) }}
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-sm btn-primary text-uppercase fw-bold" type="submit">{{ pageName }}</button>
+
+    {{ form_end(form) }}
+</section>
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#add_project_skills').select2();
+        });
+    </script>
+{% endblock %}
+
+{% endblock %}

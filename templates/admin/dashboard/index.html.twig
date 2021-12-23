@@ -1,0 +1,47 @@
+{% extends '@admin/base.html.twig' %}
+
+{% block title %}Dashboard | {{ parent() }}{% endblock %}
+
+{% block body %}
+<div>
+    {# Titre de la page #}
+    {% include 'admin/element/_title-page.html.twig' with { 'title': 'Tableau de board' } %}
+    {# Titre de la page #}
+
+    <section>
+        <div class="card mb-3 mb-md-5">
+            <header class="card-header">
+                <h3 class="mb-0 fs-5 text-uppercase">Projets</h3>
+            </header>
+            <div class="card-body">
+                <p class="mb-0">Nombre de projets : <span class="badge bg-primary">{{ numberProject }}</p>
+                <p>Dernier projet ajouté : 
+                    <a href="{{ path('admin.edit.project', {id: lastProject.id}) }}">{{ lastProject.name }}</a>
+                </p>
+
+                <p class="mt-4"><a class="btn btn-sm btn-outline-primary" href="{{ path('admin.list.project') }}">Liste des projets</a></p>
+            </div>
+            <footer class="card-footer">
+                <a class="btn btn-sm btn-primary text-uppercase fw-bold" href="{{ path('admin.add.project') }}">ajouter</a>
+            </footer>
+        </div>
+
+        <div class="card">
+            <header class="card-header">
+                <h3 class="mb-0 fs-5 text-uppercase">Compétences</h3>
+            </header>
+            <div class="card-body">
+                <p class="mb-0">Nombre de compétences : <span class="badge bg-primary">{{ numberSkill }}</p>
+                <p>Dernière compétence ajoutée : 
+                    <a href="{{ path('admin.edit.skill', {id: lastSkill.id}) }}">{{ lastSkill.name }}</a>
+                </p>
+
+                <p class="mt-4"><a class="btn btn-sm btn-outline-primary" href="{{ path('admin.list.skill') }}">Liste des compétences</a></p>
+            </div>
+            <footer class="card-footer">
+                <a class="btn btn-sm btn-primary text-uppercase fw-bold" href="{{ path('admin.add.skill') }}">ajouter</a>
+            </footer>
+        </div>
+    </section>
+</div>
+{% endblock %}

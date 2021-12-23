@@ -1,0 +1,21 @@
+{% extends '@admin/base.html.twig' %}
+
+{% block title %}Profil | {{ parent() }}{% endblock %}
+
+{% block body %}
+<section>
+    {# Titre de la page #}
+    {% include 'admin/element/_title-page.html.twig' with { 'title': 'Mon profil' } %}
+    {# Titre de la page #}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.plainPassword) }}
+
+        <button type="submit" class="btn btn-sm btn-primary text-uppercase fw-bold">modifier</button>
+        <a type="button" class="btn btn-sm btn-danger text-uppercase fw-bold" href="{{ path('app_logout') }}">Déconnexion</a>
+    {{ form_end(form) }}
+    
+</section>
+{% endblock %}

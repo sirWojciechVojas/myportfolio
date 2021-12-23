@@ -1,0 +1,85 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.row {
+    @apply flex flex-wrap gap-x-4 gap-y-8;
+}
+
+.section {
+    @apply min-h-screen py-16 md:py-28 xl:py-36;
+}
+
+.section .title {
+    font-size: clamp(1.5rem, 1.1429rem + 1.7857vw, 2.75rem);
+    @apply font-display uppercase mb-6 md:mb-10;
+}
+
+.site-title {
+    @apply font-display -ml-px sm:-ml-0.5 lg:-ml-1;
+    font-size: clamp(1.85rem,1.002rem + 4.24vw,4.5rem);
+}
+
+main a, 
+#site-footer a {
+    @apply text-action hover:opacity-75 transition-opacity duration-300;
+}
+
+.progress {
+    height: 2px;
+}
+
+.gradient-footer {
+    background: linear-gradient(to top, rgba(131, 53, 169, 0.15) 0%, #ffffff 100%);
+}
+
+/* project */
+@media all and (min-width: 320px) {
+    .card {
+        width: 100%;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .card {
+        width: calc(50% - 0.5rem);
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .card {
+        width: calc((100% / 3) - 0.69rem);
+    }
+}
+
+.card-header img {
+    aspect-ratio: 16/10;
+    @apply w-full;
+}
+
+.btn {
+    @apply py-2 px-5 uppercase text-xs font-black rounded hover:shadow-xl hover:opacity-100 transition-shadow duration-300 leading-normal;
+}
+
+.btn.action {
+    @apply bg-action text-white;
+}
+
+.btn.outline {
+    @apply border-2 border-action text-action;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(131, 53, 169, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
+    height: 100vh;
+    z-index: -1;
+}

@@ -1,0 +1,19 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/app.css"
+      ]
+    },
+    "delete-modal": {
+      "js": [
+        "/build/runtime.js",
+        "/build/delete-modal.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+twig:
+    form_themes: ['bootstrap_5_layout.html.twig']
+
+    default_path: '%kernel.project_dir%/templates'
+
+    paths:
+        'templates/admin': 'admin'
+
+    globals:
+        job_dev: 'PHP Developer'
+        image: '%images_directory%'
+
+when@test:
+    twig:
+        strict_variables: true
